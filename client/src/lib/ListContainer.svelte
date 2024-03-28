@@ -2,31 +2,40 @@
 	import ShoppingCart from '~icons/mdi/shopping-cart';
 	import ReviewStar from '~icons/mdi/star';
 	import FavIcon from '~icons/mdi/heart-outline';
-	let prodList: any[] = [];
-	const getProducts = async () => {
-		const res = await fetch('https://dummyjson.com/products');
-		const products = (await res.json()).products;
-		console.log(products);
-		prodList = products.map((prod: any) => {
-			return prod;
-		});
-	};
+	// let prodList: any[] = [];
+	// const getProducts = async () => {
+	// 	const res = await fetch('https://dummyjson.com/products');
+	// 	const products = (await res.json()).products;
+	// 	console.log(products);
+	// 	prodList = products.map((prod: any) => {
+	// 		return prod;
+	// 	});
+	// };
 
-	getProducts();
+	// getProducts();
+
+	export let prodList:any[] 
 </script>
 
 <div class="h-full w-full py-10">
 	<div
-		class="h-full w-9/12 m-auto bg-slate-400 p-10 rounded-lg grid grid-cols-3 gap-y-2 place-items-center"
+		class="h-full w-9/12 m-auto bg-slate-200 p-10 rounded-lg grid grid-cols-3 gap-y-2 place-items-center"
 	>
 		{#each prodList as p}
-			<div class="h-220 w-350 p-5 bg-white m-4 md: w-80 rounded-xl" style="height: 94%;">
+			<div class="h-220 w-350 p-5 bg-white m-4 md: w-80 rounded-xl shadow-md" style="height: 94%;">
 				<div class="relative h-56 w-full">
 					<img
 						src={p.thumbnail}
 						alt="proudct thumbnail"
 						class="h-56 w-full z-20 absolute hover:z-0"
 					/>
+
+					<button
+						class="absolute bg-sky-500 z-10 text-amber-50 p-1 rounded-lg hover:bg-sky-700"
+						style="top: 50%; left: 50%; transform:translate(-50%, -50%)"
+					>
+						View Product
+					</button>
 
 					<div
 						class="absolute right-3 top-3 h-7 w-7 rounded-full flex justify-center items-center bg-white z-10"
