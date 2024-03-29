@@ -14,12 +14,12 @@
 
 	// getProducts();
 
-	export let prodList:any[] 
+	export let prodList: any[];
 </script>
 
 <div class="h-full w-full py-10">
 	<div
-		class="h-full w-9/12 m-auto bg-slate-200 p-10 rounded-lg grid grid-cols-3 gap-y-2 place-items-center"
+		class="h-full w-9/12 m-auto bg-slate-200 p-10 rounded-lg grid xl:grid-cols-3 lg:grid-cols-2 gap-y-2 place-items-center"
 	>
 		{#each prodList as p}
 			<div class="h-220 w-350 p-5 bg-white m-4 md: w-80 rounded-xl shadow-md" style="height: 94%;">

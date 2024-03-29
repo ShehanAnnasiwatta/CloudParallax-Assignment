@@ -1,10 +1,11 @@
 <script lang="ts">
 	import ListContainer from '$lib/ListContainer.svelte';
 	import { page } from '$app/stores';
-	import { goto } from '$app/navigation';
+	import { getCategory } from '../../../utils/util.js';
+	import PaginateFooter from '$lib/paginateFooter.svelte';
 
 	export let data;
-	$: ({ products, total } = data.products)
+	$: ({ products, total } = data.products);
 
 	console.log(products);
 	console.log(data.products);
@@ -13,15 +14,9 @@
 	$: totalPages = Math.ceil(totalItems / pageSize);
 	$: currentPage = Number($page.params.page) - 1;
 
-	const navigateTo = (i: number) => {
-		goto(`/products/${i + 1}`);
-	};
+	const categoreies = getCategory();
+	console.log(categoreies);
 </script>
 
 <ListContainer prodList={products} />
-
-{#each Array(totalPages) as _, index}
-	<button on:click={() => navigateTo(index)}>
-		{index + 1}
-	</button>
-{/each}
+<PaginateFooter {totalPages} {currentPage} />
